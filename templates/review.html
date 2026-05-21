@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Review Matches</title>
+    <link rel='stylesheet' href='/static/style.css'>
+</head>
+<body>
+    <main class='container'>
+        <section class='card wide'>
+            <h1>Review YouTube Matches</h1>
+
+            <form action='/create-youtube-playlist' method='post'>
+                {% for item in matches %}
+                    <div class='match-card'>
+                        <h2>{{ item.spotify_track.artist }} - {{ item.spotify_track.title }}</h2>
+
+                        {% for option in item.youtube_options %}
+                            <label class='option'>
+                                <input
+                                    type='radio'
+                                    name='track_{{ loop.index0 }}'
+                                    value='{{ option.video_id }}'
+                                    {% if loop.first %}checked{% endif %}
+                                >
+
+                                <span>
+                                    <strong>{{ option.title }}</strong><br>
+                                    {{ option.channel }} - Score: {{ option.score }}
+                                </span>
+                            </label>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                <button type='submit'>Create YouTube Playlist</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
