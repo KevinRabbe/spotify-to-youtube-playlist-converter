@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify to YouTube Converter</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="container">
+        <section class="card">
+            <h1>Spotify → YouTube Playlist Converter</h1>
+
+            <p class="subtitle">
+                Paste a Spotify playlist link. The app will try to find matching YouTube videos
+                and create a YouTube playlist from them.
+            </p>
+
+            <form action="/convert" method="post" class="form">
+                <label for="playlist_url">Spotify Playlist URL</label>
+
+                <input
+                    type="url"
+                    id="playlist_url"
+                    name="playlist_url"
+                    placeholder="https://open.spotify.com/playlist/..."
+                    required
+                >
+
+                <button type="submit">Start Conversion</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
