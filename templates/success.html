@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Playlist Created</title>
+    <link rel='stylesheet' href='/static/style.css'>
+</head>
+<body>
+    <main class='container'>
+        <section class='card'>
+            <h1>Playlist Created</h1>
+
+            <p class='subtitle'>
+                Your YouTube playlist was created successfully.
+            </p>
+
+            {% if playlist_url %}
+                <a class='button-link' href='{{ playlist_url }}' target='_blank'>
+                    Open YouTube Playlist
+                </a>
+            {% endif %}
+
+            <a class='secondary-link' href='/'>
+                Convert another playlist
+            </a>
+        </section>
+    </main>
+</body>
+</html>
